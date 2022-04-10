@@ -1,0 +1,74 @@
+<div
+  *ngIf="showUpdateModal || showRemoveConfirmModal"
+  class="grey-background-on-modal-open"
+></div>
+
+<div class="main-page-container">
+  <div class="title-container">
+    <h2>Pacients Management</h2>
+  </div>
+  <div *ngIf="!loadingData" >
+    <button (click)="showAddNewPacientModal()" >
+      Add new pacient
+    </button>
+  </div>
+
+  <app-add-or-update
+    *ngIf="showUpdateModal"
+    [pacientToBeUpdated]="pacientToBeUpdated"
+    (closeModal)="handleAddOrUpdateModal($event)"
+    (updatedPacientToSend)="updatePacientInDBandUI($event)"
+    (newPacientToSend)="addNewPacientToDBandUI($event)"
+  ></app-add-or-update>
+
+  <app-remove-confirm
+    *ngIf="showRemoveConfirmModal"
+    [idOfPacientToBeRemoved]="idOfPacientToBeRemoved"
+    (closeModal)="closeRemoveConfirmModal($event)"
+    (pacientRemovedFromDB)="removePacientFromUI($event)"
+  >
+  </app-remove-confirm>
+
+  <div>
+    <table
+      *ngIf="!loadingData; else elseBlock"
+      class="table table-dark table-striped table-hover table-bordered"
+    >
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pacient of pacients">
+          <td>{{ pacient.firstName }}</td>
+          <td>{{ pacient.lastName }}</td>
+          <td>{{ pacient.dateOfBirth }}</td>
+          <td>{{ pacient.gender }}</td>
+          <td>
+            <div class="action-buttons-container">
+              <button (click)="openUpdateModal(pacient)" class="btn btn-info">
+                Update
+              </button>
+              <button (click)="openRemoveModal(pacient)" class="btn btn-danger">
+                X
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #elseBlock>
+    <div class="loading-bar-container">
+      <div>
+        <h3>Loading pacients...</h3>
+      </div>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,76 @@
+/* // this holds the CSS display of the modal */
+.mmodal {
+    /* // makes it hover above all elements */
+    z-index: 1001;
+    position: fixed;
+    top: 181px;
+    width: 511px;
+    left: 49%;
+    top: 41%;
+    transform: translate(-49%, -51%);
+  }
+  .mmodal-body {
+    background: rgb(226, 211, 211);
+    margin: 41px;
+    padding: 19px;
+    border: solid #51d0f0;
+    border-radius: 11px;
+    text-align: center;
+  }
+  
+  .modal-title-container {
+    color: rgb(2, 2, 2);
+    text-align: center;
+    font-size: larger;
+  }
+  
+  .modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: smaller;
+  }
+  
+  .modal-buttons-container button {
+    margin: 6px;
+  }
+  
+  .form-group {
+    text-align: left !important;
+    padding-left: 49px !important;
+  }
+  
+  .form-control-sm {
+    width: 164px;
+  }
+  
+  label {
+    color: rgb(2, 2, 2);
+    font-size: large;
+  }
+  
+  .distance-1 {
+    padding-right: 64px;
+  }
+  
+  .distance-2 {
+    padding-right: 51px;
+  }
+  
+  .distance-3 {
+    padding-right: 94px;
+  }
+  
+  .distance-4 {
+    padding-right: 32px;
+  }
+  
+  .distance-5 {
+    padding-right: 36px;
+  }
+  
+  hr {
+    height: 3px;
+    color: #4cd3f5;
+  }
+  

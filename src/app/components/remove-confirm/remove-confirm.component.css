@@ -1,0 +1,22 @@
+.mmodal {
+    /* // makes it hover above all elements */
+    z-index: 1001;
+    position: fixed;
+    top: 181px;
+    background-color: rgb(204, 178, 178);
+    border: solid 6px #7ecee2;
+    border-radius: 6px;
+    text-align: center;
+    color: rgb(207, 140, 140);
+    padding: 11px;
+    width: fit-content;
+    left: 49%;
+    top: 26%;
+    transform: translate(-49%, -49%);
+  }
+  
+  .mmodal button {
+    margin: 4px;
+    font-size: smaller;
+  }
+  
