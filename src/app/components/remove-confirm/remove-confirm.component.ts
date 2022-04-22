@@ -20,7 +20,7 @@ export class RemoveConfirmComponent implements OnInit {
   confirmed() {
     // remove pacient from DB
     this.pacientService
-      .removePatient(this.idOfPacientToBeRemoved)
+      .removePacient(this.idOfPacientToBeRemoved)
       .subscribe((pacient) => {
         // remove pacient from UI
         this.pacientRemovedFromDB.emit(this.idOfPacientToBeRemoved);

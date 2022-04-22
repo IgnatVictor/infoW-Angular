@@ -16,14 +16,14 @@ export class PacientService {
   constructor(private http: HttpClient) {}
 
   // Get all pacients
-  getPatients(): Observable<Pacient[]> {
+  getPacients(): Observable<Pacient[]> {
     return this.http.get<Pacient[]>(
       'https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients'
     );
   }
 
   // Add new pacient
-  addPatient(pacient: Pacient): Observable<Pacient> {
+  addPacient(pacient: Pacient): Observable<Pacient> {
     return this.http.post<Pacient>(
       `https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients`,
       pacient,
@@ -32,7 +32,7 @@ export class PacientService {
   }
 
   // Update pacient
-  updatePatient(pacient: Pacient): Observable<Pacient> {
+  updatePacient(pacient: Pacient): Observable<Pacient> {
     return this.http.put<Pacient>(
       `https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients/${pacient.id}`,
       pacient,
@@ -41,7 +41,7 @@ export class PacientService {
   }
 
   // Remove pacient
-  removePatient(pacientId: number): Observable<Pacient> {
+  removePacient(pacientId: number): Observable<Pacient> {
     return this.http.delete<Pacient>(
       `https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients/${pacientId}`,
       httpOptions

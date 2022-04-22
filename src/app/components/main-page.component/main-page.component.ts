@@ -8,17 +8,17 @@ import { Pacient } from '../../model/Pacient';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent implements OnInit {
-  pacients!: Array<Pacient>;
-  showUpdateModal!: boolean;
-  showRemoveConfirmModal!: boolean;
-  pacientToBeUpdated!: Pacient;
-  idOfPacientToBeRemoved!: number;
+  pacients: Array<Pacient>;
+  showUpdateModal: boolean;
+  showRemoveConfirmModal: boolean;
+  pacientToBeUpdated: Pacient;
+  idOfPacientToBeRemoved: number;
   loadingData: boolean = true;
 
   constructor(private pacientService: PacientService) {}
 
   ngOnInit(): void {
-    this.pacientService.getPatients().subscribe((pacients) => {
+    this.pacientService.getPacients().subscribe((pacients) => {
       this.pacients = pacients;
       setTimeout(() => {
         this.loadingData = false;
@@ -57,14 +57,14 @@ export class MainPageComponent implements OnInit {
 
   // add new pacient to DB and UI
   addNewPacientToDBandUI(pacient: Pacient) {
-    this.pacientService.addPatient(pacient).subscribe((pacient) => {
+    this.pacientService.addPacient(pacient).subscribe((pacient) => {
       this.pacients.push(pacient);
     });
   }
 
   // update pacient in DB and UI
   updatePacientInDBandUI(pacient: Pacient) {
-    this.pacientService.updatePatient(pacient).subscribe((pacient) => {
+    this.pacientService.updatePacient(pacient).subscribe((pacient) => {
       let pacientIndex = this.pacients.findIndex(
         (findPacient) => findPacient.id === pacient.id
       );
