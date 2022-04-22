@@ -13,19 +13,21 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PacientService {
+  private urlApi= 'https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients';
+
   constructor(private http: HttpClient) {}
 
   // Get all pacients
   getPacients(): Observable<Pacient[]> {
     return this.http.get<Pacient[]>(
-      'https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients'
+      this.urlApi
     );
   }
 
   // Add new pacient
   addPacient(pacient: Pacient): Observable<Pacient> {
     return this.http.post<Pacient>(
-      `https://6252a63c7f7fa1b1dde84f67.mockapi.io/api/pacients`,
+      this.urlApi,
       pacient,
       httpOptions
     );
